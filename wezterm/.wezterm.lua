@@ -8,8 +8,13 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 config.color_scheme = "Gruvbox Dark (Gogh)"
-
 config.window_background_opacity = 0.9
+config.window_padding = {
+	left = 0,
+	right = 2,
+	top = 0,
+	bottom = 0,
+}
 
 -- and finally, return the configuration to wezterm
 return config
