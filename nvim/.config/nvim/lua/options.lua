@@ -7,3 +7,4 @@ local o = vim.o
 
 o.number = false
 o.relativenumber = false
+o.signcolumn = "auto"
