@@ -10,8 +10,8 @@ local config = wezterm.config_builder()
 config.color_scheme = "Gruvbox Dark (Gogh)"
 config.window_background_opacity = 0.9
 config.window_padding = {
-	left = 0,
-	right = 2,
+	left = 4,
+	right = 4,
 	top = 0,
 	bottom = 0,
 }
