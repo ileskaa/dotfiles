@@ -220,6 +220,8 @@ bar {
 
 # Night light
 exec gammastep
+# Lightweight Wayland notification daemon
+exec mako
 # Bluetooth tray applet. Requires blueman
 exec blueman-applet
 
