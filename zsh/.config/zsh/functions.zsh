@@ -55,6 +55,20 @@ gfd() {
   [[ -n "$file" ]] && git diff "$file"
 }
 
+# Git Stage Tests — stage all files containing ".test"
+gst() {
+  local files
+  files="$(
+    {
+      git diff --name-only
+      # List untracked files that are not ignored
+      git ls-files --others --exclude-standard
+    } | sort -u | grep '\.test'
+  )" || { echo "No .test files to stage"; return 1; }
+
+  [[ -n "$files" ]] && printf '%s\n' "$files" | xargs git add --
+}
+
 # Git File Restore
 gfr() {
   local files
