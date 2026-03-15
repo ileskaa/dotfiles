@@ -109,6 +109,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias lg='lazygit'
 alias v='nvim'
+alias shotclip='grim -g "$(slurp)" - | wl-copy'
 
 # Useful functions, such as gfe (git file edit)
 source ~/.config/zsh/functions.zsh
