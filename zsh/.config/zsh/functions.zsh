@@ -56,7 +56,7 @@ gfd() {
 }
 
 # Git Stage Tests — stage all files containing ".test"
-gst() {
+gstt() {
   local files
   files="$(
     {
