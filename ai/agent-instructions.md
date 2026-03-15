@@ -36,7 +36,6 @@ State:
 
 Summarize:
 
-- files changed
 - behavior changed or preserved
 - tests added/updated
 - risks or follow-ups
