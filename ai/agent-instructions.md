@@ -1,58 +1,41 @@
 # Agent Instructions
 
-## Default approach
+## Rules
 
-- Prefer the smallest possible diff.
-- Touch only files required for the task.
-- Follow existing patterns in nearby code.
-- Avoid unrelated edits, renames, and formatting churn.
-- Separate refactors from behavior changes.
+- Minimal diff. Touch only what's needed.
+- Follow existing patterns. Prefer local fixes over new abstractions.
+- Keep refactors separate from behavior changes.
+- Preserve existing APIs/contracts/types unless asked otherwise.
+- No unrelated cleanup, formatting churn, or speculative improvements.
 
-## Before editing
+## Before Editing
 
-State:
+- Read the full file(s) you'll edit and relevant tests/call sites.
+- For non-trivial changes, state: files to change, assumptions, risks, what stays untouched.
 
-1. files to change
-2. why
-3. assumptions
-4. risks
-5. what will remain untouched
+## When Uncertain
 
-## Implementation
+- Inspect context before asking.
+- Multiple valid approaches → give tradeoffs, recommend one.
+- Still unclear after review → ask, don't guess.
 
-- Preserve existing APIs unless explicitly asked to change them.
-- Prefer local fixes over new abstractions.
-- Do not add dependencies unless necessary.
-- Do not weaken types.
-- Reuse existing helpers and patterns.
+## Verification
+
+Before reporting done:
+
+1. When available, run typecheck, lint, relevant tests. Fix what you broke.
+2. Report unrelated failures or skipped steps clearly.
 
 ## Tests
 
-- Add or update regression tests for behavior changes.
-- Reuse existing test conventions.
-- Report what you validated and what you did not validate.
+- Add/update regression tests for behavior changes.
+- Prefer the narrowest test that gives confidence.
 
 ## Final output
 
 Summarize:
 
 - behavior changed or preserved
-- tests added/updated
+- verification results
+- eventual commands to verify
 - risks or follow-ups
-
-## Do not
-
-- make unrelated cleanup changes
-- perform speculative refactors
-- silently change APIs or behavior
-- guess silently when uncertain
-
-## Review contract
-
-Every change should optimize for easy review:
-
-- minimal diff
-- no unrelated edits
-- no unnecessary renames
-- no mixed-purpose changes
-- concise explanation of risks and validation
