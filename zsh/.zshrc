@@ -122,4 +122,11 @@ source ~/.config/zsh/functions.zsh
 eval "$(zoxide init zsh)" 
 # Automatically loads virtual envs
 eval "$(direnv hook zsh)"
+
+# Self installed apps
 export PATH="$HOME/.local/bin:$PATH"
+
+# Google Cloud SDK
+GCLOUD_SDK="$HOME/.local/google-cloud-sdk"
+[ -f "$GCLOUD_SDK/path.zsh.inc" ] && . "$GCLOUD_SDK/path.zsh.inc"
+[ -f "$GCLOUD_SDK/completion.zsh.inc" ] && . "$GCLOUD_SDK/completion.zsh.inc"
