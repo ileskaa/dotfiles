@@ -120,3 +120,6 @@ source ~/.config/zsh/functions.zsh
 
 # cd on steroids
 eval "$(zoxide init zsh)" 
+# Automatically loads virtual envs
+eval "$(direnv hook zsh)"
+export PATH="$HOME/.local/bin:$PATH"
