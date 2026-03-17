@@ -70,7 +70,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm fzf archlinux) # vi-mode
+plugins=(git fzf)
+# Automatically sources nvm
+plugins+=(nvm)
+[[ -f /etc/arch-release ]] && plugins+=(archlinux)
+[[ -f /etc/fedora-release ]] && plugins+=(dnf)
 
 # vi-mode configs
 # VI_MODE_SET_CURSOR=true
