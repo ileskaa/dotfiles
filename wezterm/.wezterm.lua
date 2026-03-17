@@ -8,6 +8,7 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 config.color_scheme = "Gruvbox Dark (Gogh)"
+
 config.window_background_opacity = 0.9
 config.enable_tab_bar = false
 config.window_padding = {
@@ -15,6 +16,17 @@ config.window_padding = {
 	right = 4,
 	top = 8,
 	bottom = 0,
+}
+
+local act = wezterm.action
+
+config.warn_about_missing_glyphs = false
+config.keys = {
+	{
+		key = "Enter",
+		mods = "SHIFT",
+		action = act.SendString("\x1b\r"),
+	},
 }
 
 -- and finally, return the configuration to wezterm
