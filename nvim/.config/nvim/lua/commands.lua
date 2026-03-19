@@ -14,3 +14,14 @@ vim.api.nvim_create_user_command("StageQ", function()
     vim.notify("git add failed", vim.log.levels.ERROR)
   end
 end, {})
+
+vim.api.nvim_create_user_command("Path", function()
+  local path = vim.fn.expand "%:p"
+  if path == "" then
+    vim.notify("Current buffer has no file name", vim.log.levels.WARN)
+    return
+  end
+  -- "+" is the clipboard register
+  vim.fn.setreg("+", path)
+  vim.notify(path)
+end, {})
