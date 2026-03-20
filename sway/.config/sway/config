@@ -204,7 +204,7 @@ bindsym $mod+r mode "resize"
 # My own
 #
     # Select area -> copy to clipboard
-    bindsym $mod+Shift+s grim -g "$(slurp)" - | wl-copy
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 
 
 #
