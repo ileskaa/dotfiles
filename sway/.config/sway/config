@@ -200,6 +200,12 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+#
+# My own
+#
+    # Select area -> copy to clipboard
+    bindsym $mod+Shift+s grim -g "$(slurp)" - | wl-copy
+
 
 #
 # Keyboard
