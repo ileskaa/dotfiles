@@ -171,11 +171,11 @@ output DP-1 pos 1920 0
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+Shift+minus floating enable, resize set 1400 900, move position center, move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show, resize set 1400 900, move position center
+    bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
