@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "business_criticality",
+    "priorities"
+  ],
+  "properties": {
+    "application_roles": {
+      "type": "array",
+      "description": "What kinds of application surfaces or runtime roles this project includes.",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "web_app",
+          "api",
+          "worker",
+          "cli",
+          "library"
+        ]
+      },
+      "default": []
+    },
+    "architecture_styles": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "layered",
+          "modular_monolith",
+          "microservices",
+          "service_oriented",
+          "event_driven",
+          "hexagonal",
+          "clean_architecture",
+          "onion",
+          "plugin_based",
+          "cqrs"
+        ]
+      },
+      "default": []
+    },
+    "repository_shape": {
+      "type": "string",
+      "description": "How the code is organized across repositories.",
+      "enum": [
+        "single_repo",
+        "monorepo",
+        "multi_repo"
+      ]
+    },
+    "business_criticality": {
+      "type": "string",
+      "description": "How costly failure, architectural drift, or instability would be for the business.",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "team_size": {
+      "type": "integer",
+      "description": "Approximate number of engineers working on the project.",
+      "minimum": 1
+    },
+    "priorities": {
+      "type": "array",
+      "description": "The main qualities the architecture should optimize for. Order matters.",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "delivery_speed",
+          "maintainability",
+          "reliability",
+          "scalability",
+          "security",
+          "operability",
+          "testability",
+          "modularity"
+        ]
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "description": "Known constraints that should influence architectural judgment and recommendations.",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "known_pain_points": {
+      "type": "array",
+      "description": "Current problems the team is experiencing that may be architecture-related.",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "target_architecture": {
+      "type": "string",
+      "description": "Optional freeform description of the architecture the team wants, to help detect drift between intent and reality."
+    }
+  }
+}

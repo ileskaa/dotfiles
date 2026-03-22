@@ -1,0 +1,22 @@
+{
+  "application_roles": ["web_app", "api"],
+  "architecture_style": "modular_monolith",
+  "repository_shape": "monorepo",
+  "business_criticality": "high",
+  "team_size": 5,
+  "priorities": [
+    "maintainability",
+    "reliability",
+    "delivery_speed"
+  ],
+  "constraints": [
+    "small_team",
+    "legacy_db"
+  ],
+  "known_pain_points": [
+    "slow feature delivery",
+    "cross-module imports",
+    "unclear module boundaries"
+  ],
+  "target_architecture": "Modular monolith with explicit module boundaries and minimal cross-module imports."
+}
