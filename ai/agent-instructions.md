@@ -30,7 +30,7 @@ Before reporting done:
 
 - Add/update regression tests for behavior changes.
 - Prefer the narrowest test that gives confidence.
-- if the project uses a Git hook manager such as Husky or Lefthook, make sure the new/updated tests are run by either a pre-commit or pre-push hook (but not both)
+- If the project uses a Git hook manager such as Husky or Lefthook, make sure the new/updated tests are run by either a pre-commit or pre-push hook (but not both)
 
 ## Final output
 
@@ -40,4 +40,3 @@ Summarize:
 - verification results
 - eventual commands to verify
 - risks or follow-ups
-- appropriate commit message for implemented changes
