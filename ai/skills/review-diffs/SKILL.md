@@ -1,9 +1,10 @@
 ---
 name: review-diffs
-description: Checks whether a diff contains unnecessary changes that should be removed before commit.
+description: Evaluates pending code changes for correctness, clarity, and risk.
 ---
 
 Review the diff for changes that do not meaningfully contribute to the intended behavior.
+Assess the quality of the diff and report if some refactoring would be appropriate.
 
 Flag:
 
@@ -15,4 +16,8 @@ Flag:
 - duplicated logic introduced by the change
 - stale edits that can be reverted
 
-Prefer the smallest diff that fully solves the problem.
+Suggest:
+
+- refactors if appropriate
+
+As a rule of thumb, prefer small diffs over large ones.
