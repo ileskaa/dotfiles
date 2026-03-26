@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+
+import os
+import shlex
+import subprocess
+import sys
+from dataclasses import dataclass
+
+
+@dataclass
+class GitEntry:
+    path: str
+    status: str
+    kind: str
+
+
+def run_git(args: list[str], *, check: bool = True) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["git", *args],
+        check=check,
+        text=True,
+        capture_output=True,
+    )
+
+
+def ensure_git_repo() -> None:
+    try:
+        run_git(["rev-parse", "--show-toplevel"])
+    except subprocess.CalledProcessError:
+        print("error: not inside a git repository", file=sys.stderr)
+        sys.exit(1)
+
+
+def parse_status_line(line: str) -> GitEntry | None:
+    status = line[:2]
+    path = line[3:]
+
+    if status == "??":
+        return GitEntry(path=path, status=status, kind="created")
+
+    index_status, worktree_status = status
+
+    if worktree_status in {" ", "D"}:
+        return None
+
+    if index_status == "D":
+        return None
+
+    return GitEntry(path=path, status=status, kind="modified")
+
+
+def get_entries() -> list[GitEntry]:
+    result = run_git(["status", "--porcelain", "--untracked-files=all"])
+    entries: list[GitEntry] = []
+
+    for raw_line in result.stdout.splitlines():
+        entry = parse_status_line(raw_line)
+        if entry is not None:
+            entries.append(entry)
+
+    return sorted(entries, key=lambda entry: (entry.kind != "created", entry.path))
+
+
+def print_menu(entries: list[GitEntry]) -> None:
+    print()
+    print("Unstaged and untracked files:")
+    for index, entry in enumerate(entries, start=1):
+        print(f"{index}. [{entry.status}] {entry.path}")
+    print("Commands: <number>o to open, <number>s to stage, q to exit")
+
+
+def prompt_command(entries: list[GitEntry]) -> tuple[str, GitEntry] | None:
+    while True:
+        command = input("Command: ").strip().lower()
+        if command == "q":
+            return None
+        if len(command) >= 2 and command[:-1].isdigit() and command[-1] in {"o", "s"}:
+            selected = int(command[:-1])
+            if 1 <= selected <= len(entries):
+                return command[-1], entries[selected - 1]
+        print("Invalid command.")
+
+
+def get_editor_command() -> list[str]:
+    editor = os.environ.get("EDITOR", "").strip()
+    if not editor:
+        print("error: $EDITOR is not set", file=sys.stderr)
+        sys.exit(1)
+    return shlex.split(editor)
+
+
+def stage_file(path: str) -> None:
+    try:
+        run_git(["add", "--", path])
+        print(f"Staged {path}")
+    except subprocess.CalledProcessError as exc:
+        message = exc.stderr.strip() or "git add failed"
+        print(f"error: {message}", file=sys.stderr)
+
+
+def open_file(path: str) -> None:
+    command = [*get_editor_command(), path]
+    try:
+        subprocess.run(command, check=True)
+    except FileNotFoundError:
+        print(f"error: editor not found: {command[0]}", file=sys.stderr)
+        return
+    except subprocess.CalledProcessError as exc:
+        print(f"error: editor exited with status {exc.returncode}", file=sys.stderr)
+
+    stage = input("Stage the file? [y/n] ").strip().lower()
+    if stage == "y":
+        stage_file(path)
+
+
+def main() -> int:
+    ensure_git_repo()
+
+    while True:
+        entries = get_entries()
+        if not entries:
+            print("No unstaged or untracked files.")
+            return 0
+
+        print_menu(entries)
+        command = prompt_command(entries)
+        if command is None:
+            return 0
+
+        action, entry = command
+        if action == "o":
+            open_file(entry.path)
+        elif action == "s":
+            stage_file(entry.path)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
