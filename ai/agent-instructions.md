@@ -8,6 +8,16 @@
 - Preserve existing APIs/contracts/types unless asked otherwise.
 - No unrelated cleanup, formatting churn, or speculative improvements.
 
+## DRY
+
+Treat duplication as a design smell.
+
+- Do not copy business logic across modules.
+- Prefer shared utilities, schemas, types, and constants over repeated definitions.
+- Keep one source of truth for rules, transformations, and configuration.
+- Before adding code, check whether the same idea already exists elsewhere.
+- Accept small local duplication only when abstraction would make the code harder to understand or maintain.
+
 ## Before Editing
 
 - Read the full file(s) you'll edit and relevant tests/call sites.
