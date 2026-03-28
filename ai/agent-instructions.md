@@ -2,11 +2,10 @@
 
 ## Rules
 
-- Minimal diff. Touch only what's needed.
-- Follow existing patterns. Prefer local fixes over new abstractions.
-- Keep refactors separate from behavior changes.
-- Preserve existing APIs/contracts/types unless asked otherwise.
-- No unrelated cleanup, formatting churn, or speculative improvements.
+- Minimal diff that does not create duplication.
+- Follow existing patterns.
+- In general, preserve existing APIs/contracts/types. This can be bypassed if the goal is to avoid duplication
+- No formatting churn, or speculative improvements.
 
 ## DRY
 
@@ -40,7 +39,7 @@ Before reporting done:
 
 - Add/update regression tests for behavior changes.
 - Prefer the narrowest test that gives confidence.
-- If the project uses a Git hook manager such as Husky or Lefthook, make sure the new/updated tests are run by either a pre-commit or pre-push hook (but not both)
+- If the project uses a Git hook manager such as Husky or Lefthook, make sure the new/updated tests are triggered by either a pre-commit or pre-push hook (but not both)
 
 ## Final output
 
@@ -48,5 +47,4 @@ Summarize:
 
 - behavior changed
 - verification results
-- eventual commands to verify
 - risks or follow-ups
