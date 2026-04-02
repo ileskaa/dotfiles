@@ -249,14 +249,8 @@ workspace 2 output DP-1
 workspace 2 output DP-3
 workspace 2 output HDMI-A-1
 
-default_border pixel 2
 hide_edge_borders smart
 font pango:monospace 8
-# Controls border around the title bar
-titlebar_border_thickness 1
-# Controls <horizontal> [vertical] padding inside title bar
-# Should be >= than the border thickness
-titlebar_padding 1 1
 
 # Additional config files
 include /etc/sway/config.d/*
