@@ -105,6 +105,7 @@ When given a feature request or bug report:
    - Run the relevant tests if execution is available
    - Confirm failures are caused by missing behavior, not broken setup
    - If you cannot run tests, say so clearly
+   - Fix eventual type errors in test files
 
 5. Stop after the behavior is specified
    - Do not continue into implementation work
