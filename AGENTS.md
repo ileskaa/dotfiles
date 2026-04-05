@@ -4,7 +4,8 @@
 
 This repository is a GNU Stow-managed dotfiles repo. Each top-level directory is a stow package that maps into `$HOME`.
 
-- `ai/`: Codex and agent-related config, local instructions, and skills.
+- `ai/`: stowed Codex and agent-related config under `.codex/` and `.claude/`.
+- `ai-src/`: repo-only source material and generation scripts for agent instructions.
 - `nvim/`: Neovim config under `.config/nvim/`, mostly Lua.
 - `sway/`: Sway window manager config under `.config/sway/`.
 - `wezterm/`: WezTerm config in `.wezterm.lua`.
@@ -56,4 +57,4 @@ Pull requests should include:
 
 ## Security & Local Configuration
 
-Do not commit machine-specific secrets or personal overrides. Keep local-only agent notes outside version control, as described in `ai/README.md` for `AGENTS.local.md`.
+Do not commit machine-specific secrets or personal overrides. Keep local-only agent notes outside version control, as described in `ai-src/README.md` for `AGENTS.local.md`.

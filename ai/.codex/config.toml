@@ -1,1 +1,69 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
 project_doc_fallback_filenames = ["AGENTS.local.md"]
+
+[tui]
+notifications = false
+
+[projects."/home/akseli/repos/wms"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/next-gen-frontend"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/next-gen-core"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/docker-sandbox"]
+trust_level = "trusted"
+
+[projects."/home/akseli/.config/nvim"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/DCP/next-gen-frontend"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/DCP/next-gen-core"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/DCP/hm2-fake-api"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/my-first-agent"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/ruso"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/ruso/ruso-shopify"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/ruso/wms"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/debug/wms"]
+trust_level = "trusted"
+
+[projects."/home/akseli/dotfiles"]
+trust_level = "trusted"
+
+[projects."/home/akseli/.config/sway"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/terminal-task-manager"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/choremander"]
+trust_level = "trusted"
+
+[projects."/home/akseli/.local/bin"]
+trust_level = "trusted"
+
+[projects."/home/akseli/repos/DCP"]
+trust_level = "trusted"
+
+[projects."/home/akseli/.config/VSCodium/User"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.3-codex-spark" = 4

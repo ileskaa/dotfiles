@@ -22,14 +22,28 @@ You can also do a dry-run. For example:
 stow -nv -R ai
 ```
 
+## AI layout
+
+The `ai/` package is reserved for files that should be stowed into `$HOME`.
+
+- `ai/.codex/` contains Codex-facing config, generated instruction files, and shared skills.
+- `ai/.claude/` contains Claude-facing generated files and symlinks.
+- `ai-src/` contains repo-only source material and generation logic. It is not a stow package.
+
+Regenerate the tool-facing instruction files with:
+
+```bash
+./ai-src/generate.sh
+```
+
 ## Symlinks
 
 `ln -s` allows you to create symbolic links. Example:
 
 ```bash
-ln -s ../skills ai/.codex/skills
+ln -s ../.codex/skills ai/.claude/skills
 ```
 
-where `../skills` is the target of the symlink
-and `ai/.codex/skills` is the path of the symlink being created.
+where `../.codex/skills` is the target of the symlink
+and `ai/.claude/skills` is the path of the symlink being created.
 Note that the target is resolved relative to the symlink path (the 2nd argument).
