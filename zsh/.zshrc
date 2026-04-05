@@ -132,3 +132,5 @@ export PATH="$HOME/.local/bin:$PATH"
 GCLOUD_SDK="$HOME/.local/google-cloud-sdk"
 [ -f "$GCLOUD_SDK/path.zsh.inc" ] && . "$GCLOUD_SDK/path.zsh.inc"
 [ -f "$GCLOUD_SDK/completion.zsh.inc" ] && . "$GCLOUD_SDK/completion.zsh.inc"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
