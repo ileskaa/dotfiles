@@ -46,7 +46,9 @@ return {
     event = "BufReadPost",
     -- This defines code to run after the plugin loads
     config = function()
-      require("ts_context_commentstring").setup()
+      -- The plugin only checks whether get_parser() errors, but newer Neovim can
+      -- return nil for unsupported buffers. Keep the compatibility guard local.
+      require("configs.ts_context_commentstring").setup()
     end,
   },
 }
