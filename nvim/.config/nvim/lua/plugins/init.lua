@@ -32,6 +32,11 @@ return {
         end
       end
     end,
+    config = function(_, opts)
+      -- Keep Tree-sitter setup in a local module so the Neovim 0.12
+      -- compatibility override can be removed cleanly once upstream fixes it.
+      require("configs.treesitter").setup(opts)
+    end,
   },
 
   {
