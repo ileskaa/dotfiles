@@ -1,10 +1,3 @@
-## Rules
-
-- Minimal diff that does not create duplication.
-- Follow existing patterns.
-- In general, preserve existing APIs/contracts/types. This can be bypassed if the goal is to avoid duplication
-- No formatting churn, or speculative improvements.
-
 ## DRY
 
 Treat duplication as a design smell.
@@ -15,23 +8,12 @@ Treat duplication as a design smell.
 - Before adding code, check whether the same idea already exists elsewhere.
 - Accept small local duplication only when abstraction would make the code harder to understand or maintain.
 
-## Before Editing
+## Workflow
 
-- Read the full file(s) you'll edit and relevant tests/call sites.
-- For non-trivial changes, state: files to change, assumptions, risks, what stays untouched.
+Before editing: Read the full file(s) you'll edit and relevant tests/call sites.
 
-## When Uncertain
-
-- Inspect context before asking.
-- Multiple valid approaches → give tradeoffs, recommend one.
-- Still unclear after review → ask, don't guess.
-
-## Verification
-
-Before reporting done:
-
-1. When available, run typecheck, lint, relevant tests. Fix what you broke.
-2. Report unrelated failures or skipped steps clearly.
+Before reporting done: if available, run typecheck, lint, relevant tests.
+Fix what you broke.
 
 ## Tests
 
@@ -44,5 +26,15 @@ Before reporting done:
 Summarize:
 
 - behavior changed
-- verification results
 - risks or follow-ups
+
+### Response style
+
+- Be concise by default.
+- Give the answer first.
+- Prefer 3-7 short bullets over long prose.
+- Do not restate the prompt or explain obvious reasoning.
+- Mention tradeoffs only when they materially affect implementation.
+- Target under 150 words unless the task genuinely requires more.
+- Use the minimum structure needed; avoid unnecessary sections/headings.
+- Write like a teammate leaving a precise PR comment, not a consultant.
