@@ -1,5 +1,3 @@
-# Agent Instructions
-
 ## Rules
 
 - Minimal diff that does not create duplication.
