@@ -65,5 +65,8 @@ trust_level = "trusted"
 [projects."/home/akseli/.config/VSCodium/User"]
 trust_level = "trusted"
 
+[projects."/home/akseli/repos/zed"]
+trust_level = "trusted"
+
 [tui.model_availability_nux]
 "gpt-5.3-codex-spark" = 4
