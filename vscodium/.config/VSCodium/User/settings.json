@@ -1,0 +1,43 @@
+{
+    "editor.fontSize": 16,
+    "editor.formatOnSave": true,
+    "editor.mouseWheelScrollSensitivity": 3,
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "off",
+    "editor.glyphMargin": false,
+    "editor.showFoldingControls": "never",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.autofetch": false,
+    "git.confirmSync": false,
+    // Hide commit msg input
+    "git.showCommitInput": false,
+    // Related to the multi-command extension (by ryuta46)
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.closeAllUI",
+            "sequence": [
+                "workbench.action.closeSidebar",
+                "workbench.action.closePanel",
+                "workbench.action.closeAuxiliaryBar"
+            ]
+        }
+    ],
+    // Disabled because of a bug
+    "python.useEnvironmentsExtension": false,
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.initialHint": false,
+    "workbench.activityBar.location": "hidden",
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.panel.defaultLocation": "right",
+    // LANGUAGE SPECIFIC
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[vue]": {
+        "editor.tabSize": 2
+    }
+}
+
