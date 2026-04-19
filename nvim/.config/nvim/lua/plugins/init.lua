@@ -22,6 +22,8 @@ return {
       -- ensure_installed is typically a list of parser names
       -- that should be installed automatically
       opts.ensure_installed = opts.ensure_installed or {}
+      opts.indent = opts.indent or {}
+      opts.indent.disable = opts.indent.disable or {}
 
       -- ipairs iterates over both index and value.
       -- Here we don't care about the index
@@ -29,6 +31,10 @@ return {
         -- If parser missing, add it to the end of the list
         if not vim.tbl_contains(opts.ensure_installed, parser) then
           table.insert(opts.ensure_installed, parser)
+        end
+
+        if not vim.tbl_contains(opts.indent.disable, parser) then
+          table.insert(opts.indent.disable, parser)
         end
       end
     end,
