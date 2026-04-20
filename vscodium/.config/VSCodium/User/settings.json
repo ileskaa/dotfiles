@@ -9,6 +9,8 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "git.autofetch": false,
     "git.confirmSync": false,
+    // Annoying and buggy feature
+    "git.detectWorktrees": false,
     // Hide commit msg input
     "git.showCommitInput": false,
     // Related to the multi-command extension (by ryuta46)
