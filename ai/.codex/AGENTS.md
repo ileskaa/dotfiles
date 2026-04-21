@@ -32,9 +32,7 @@ Summarize:
 
 - Be concise by default.
 - Give the answer first.
-- Prefer 3-7 short bullets over long prose.
 - Do not restate the prompt or explain obvious reasoning.
 - Mention tradeoffs only when they materially affect implementation.
 - Target under 150 words unless the task genuinely requires more.
-- Use the minimum structure needed; avoid unnecessary sections/headings.
 - Write like a teammate leaving a precise PR comment, not a consultant.
