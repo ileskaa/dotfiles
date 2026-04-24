@@ -15,6 +15,24 @@ Before editing: Read the full file(s) you'll edit and relevant tests/call sites.
 Before reporting done: if available, run typecheck, lint, relevant tests.
 Fix what you broke.
 
+## Coding Style
+
+Prefer the simplest expression that preserves correctness.
+
+Bad example:
+
+```ts
+...(data?.lastSeenAt
+  ? { lastSeenAt: toIsoDateTime(data.lastSeenAt) ?? undefined }
+  : {})
+```
+
+Better example:
+
+```ts
+lastSeenAt: data?.lastSeenAt ? toIsoDateTime(data.lastSeenAt) : undefined,
+```
+
 ## Tests
 
 - Add/update regression tests for behavior changes.
@@ -32,7 +50,8 @@ Summarize:
 
 - Be concise by default.
 - Give the answer first.
-- Prefer 3-7 short bullets over long prose.
+- When asked to explain or clarify something, include a concrete example
+  whenever it would make the answer more explicit.
 - Do not restate the prompt or explain obvious reasoning.
 - Mention tradeoffs only when they materially affect implementation.
 - Target under 150 words unless the task genuinely requires more.
